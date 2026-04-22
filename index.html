@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bleads Design System v2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =============================================
+   BLEADS DESIGN SYSTEM — index.html
+   github.com/frbahamondes/bleads-design-system
+   ============================================= */
+:root {
+  --bl: #084BB9; --rd: #EF2D2D; --gr: #9CF95B;
+  --or: #FF7F00; --tl: #00FFD4; --gy: #545454;
+  --bl-l: #E6EEF7; --rd-l: #FDE9E9;
+  --surface: #fff; --bg: #F5F7FB;
+  --border: rgba(8,75,185,0.12);
+  --text: #1a1a1a; --muted: #828282;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-pill:9999px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--gy);line-height:1.6}
+
+/* ── LAYOUT ── */
+.sidebar{position:fixed;top:0;left:0;width:220px;height:100vh;background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;z-index:100;padding:24px 0}
+.sidebar-logo{padding:0 20px 20px;border-bottom:1px solid var(--border);margin-bottom:12px}
+.sidebar-logo img{height:28px;width:auto}
+.nav-section{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding:12px 20px 4px}
+.nav-link{display:block;font-size:12px;font-weight:500;color:var(--gy);padding:7px 20px;text-decoration:none;transition:all 0.15s;border-left:2px solid transparent}
+.nav-link:hover{color:var(--bl);background:var(--bl-l);border-left-color:var(--bl)}
+.nav-link.active{color:var(--bl);background:var(--bl-l);border-left-color:var(--bl);font-weight:600}
+
+.main{margin-left:220px;padding:40px 48px;max-width:960px}
+
+/* ── SECTIONS ── */
+.section{margin-bottom:64px;scroll-margin-top:32px}
+.section-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--rd);margin-bottom:8px}
+.section-title{font-size:28px;font-weight:700;color:var(--bl);letter-spacing:-0.02em;margin-bottom:6px}
+.section-desc{font-size:14px;color:var(--muted);margin-bottom:28px;max-width:580px;line-height:1.7}
+.divider{height:1px;background:var(--border);margin-bottom:28px}
+
+/* ── HERO HEADER ── */
+.hero{background:var(--bl);border-radius:var(--r-xl);padding:40px 48px;margin-bottom:48px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border:50px solid var(--rd);border-radius:50%;opacity:0.2}
+.hero::after{content:'';position:absolute;bottom:-40px;right:80px;width:160px;height:160px;background:var(--gr);border-radius:50%;opacity:0.12}
+.hero-tag{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gr);margin-bottom:12px}
+.hero-title{font-size:40px;font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1.1;margin-bottom:10px}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.75);max-width:480px;line-height:1.6}
+.hero-badges{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.hero-badge{font-size:10px;font-weight:600;padding:4px 12px;border-radius:var(--r-pill);background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25)}
+
+/* ── CARDS ── */
+.card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-xl);overflow:hidden}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card-full{grid-column:1/-1}
+.card-preview{display:flex;align-items:center;justify-content:center;padding:32px 24px;min-height:120px}
+.card-preview img{max-height:68px;width:auto;max-width:100%;object-fit:contain}
+.card-preview.sm img{max-height:48px}
+.card-preview.full img{max-height:52px}
+.bg-white{background:#fff}
+.bg-gray{background:#F5F7FB;border-bottom:0.5px solid var(--border)}
+.bg-dark{background:#0d0d0d}
+.bg-blue{background:var(--bl)}
+.card-body{padding:14px 16px;border-top:0.5px solid var(--border)}
+.card-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:3px}
+.card-desc{font-size:11px;color:var(--muted);line-height:1.55;margin-bottom:8px}
+.tags{display:flex;gap:4px;flex-wrap:wrap}
+.tag{font-size:9px;font-weight:600;padding:2px 8px;border-radius:var(--r-pill)}
+.tag-use{background:var(--bl-l);color:var(--bl)}
+.tag-warn{background:#FFF3E0;color:#994C00}
+.tag-err{background:var(--rd-l);color:var(--rd)}
+
+/* ── COLOR SWATCHES ── */
+.swatch-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:24px}
+.swatch{border-radius:var(--r-md);overflow:hidden;border:0.5px solid var(--border)}
+.swatch-color{height:64px}
+.swatch-info{padding:8px 10px;background:var(--surface)}
+.swatch-name{font-size:11px;font-weight:600;color:var(--text);display:block}
+.swatch-hex{font-size:10px;color:var(--muted);font-family:monospace}
+.swatch-role{font-size:9px;color:var(--muted);margin-top:1px;display:block}
+
+.scale-row{display:flex;gap:2px;border-radius:var(--r-md);overflow:hidden;margin-bottom:6px}
+.scale-stop{flex:1;height:36px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:600;color:rgba(255,255,255,0.85);cursor:default;transition:transform 0.1s;mix-blend-mode:normal}
+.scale-stop:hover{transform:scaleY(1.12);z-index:1}
+.scale-stop.primary{outline:2px solid rgba(255,255,255,0.5);outline-offset:-4px}
+
+/* ── TYPOGRAPHY ── */
+.type-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-lg);padding:20px 24px;margin-bottom:10px}
+.type-meta{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.type-pill{font-size:9px;font-weight:600;background:var(--bl-l);color:var(--bl);padding:2px 8px;border-radius:var(--r-pill);font-family:monospace}
+
+/* ── SPACING ── */
+.space-row{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.space-vis{height:20px;background:var(--bl);border-radius:3px;opacity:0.15;position:relative}
+.space-vis-inner{height:100%;background:var(--bl);border-radius:3px;opacity:1}
+.space-token{font-size:10px;font-weight:600;color:var(--text);min-width:80px;font-family:monospace}
+.space-val{font-size:10px;color:var(--muted);font-family:monospace}
+
+/* ── RADIUS ── */
+.radius-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:24px}
+.radius-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-lg);padding:12px;text-align:center}
+.radius-demo{height:40px;background:var(--bl-l);margin-bottom:8px;border:1.5px solid var(--bl)}
+.radius-name{font-size:10px;font-weight:600;color:var(--text);font-family:monospace}
+.radius-val{font-size:9px;color:var(--muted);font-family:monospace}
+
+/* ── BUTTONS ── */
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.btn{font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;padding:10px 22px;border-radius:var(--r-pill);cursor:pointer;border:1.5px solid transparent;transition:all 0.2s;letter-spacing:0.01em;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:var(--bl);color:#fff;border-color:var(--bl)}
+.btn-primary:hover{background:#063D97}
+.btn-secondary{background:transparent;color:var(--bl);border-color:var(--bl)}
+.btn-secondary:hover{background:var(--bl-l)}
+.btn-danger{background:var(--rd);color:#fff;border-color:var(--rd)}
+.btn-danger:hover{background:#CC1E1E}
+.btn-ghost{background:transparent;color:var(--gy);border-color:transparent}
+.btn-ghost:hover{background:#F0F0F0}
+.btn-sm{font-size:11px;padding:6px 14px}
+.btn-lg{font-size:15px;padding:14px 32px}
+
+/* ── BADGES ── */
+.badge-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.badge{font-size:11px;font-weight:600;padding:4px 12px;border-radius:var(--r-pill);display:inline-block}
+.badge-blue{background:var(--bl-l);color:var(--bl)}
+.badge-red{background:var(--rd-l);color:var(--rd)}
+.badge-green{background:#EDFFD6;color:#3A7D00}
+.badge-orange{background:#FFF3E6;color:#994C00}
+.badge-teal{background:#DFFFFA;color:#006B59}
+.badge-gray{background:#F0F0F0;color:var(--gy)}
+
+/* ── SAMPLE CARDS ── */
+.sample-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.sample-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-xl);padding:20px}
+.sample-card--blue{background:var(--bl);border-color:var(--bl)}
+.sample-card--red{background:var(--rd);border-color:var(--rd)}
+.sample-card--featured{border:1.5px solid var(--bl)}
+.sample-card-label{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--bl);margin-bottom:6px}
+.sample-card--blue .sample-card-label,.sample-card--red .sample-card-label{color:rgba(255,255,255,0.65)}
+.sample-card-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px}
+.sample-card--blue .sample-card-title,.sample-card--red .sample-card-title{color:#fff}
+.sample-card-body{font-size:12px;color:var(--muted);line-height:1.55}
+.sample-card--blue .sample-card-body,.sample-card--red .sample-card-body{color:rgba(255,255,255,0.7)}
+
+/* ── INPUTS ── */
+.input-demo{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;max-width:480px}
+.input-label{font-size:12px;font-weight:600;color:var(--gy);margin-bottom:4px;display:block}
+.input{font-family:'Poppins',sans-serif;font-size:14px;padding:10px 14px;border-radius:var(--r-md);border:1px solid rgba(8,75,185,0.2);background:var(--surface);color:var(--text);width:100%;outline:none;transition:all 0.2s}
+.input:focus{border-color:var(--bl);box-shadow:0 0 0 3px rgba(8,75,185,0.1)}
+.input::placeholder{color:#bbb}
+
+/* ── SHAPES ── */
+.shapes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.shape-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-lg);padding:20px 12px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.shape-show{display:flex;align-items:center;justify-content:center;height:56px}
+.shape-name{font-size:10px;font-weight:600;color:var(--muted);text-align:center;line-height:1.4}
+.shape-rule{font-size:9px;color:#bbb;text-align:center;line-height:1.4;margin-top:2px}
+
+.sh-circle{width:44px;height:44px;background:var(--rd);border-radius:50%}
+.sh-semicircle{width:52px;height:26px;background:var(--bl);border-radius:52px 52px 0 0}
+.sh-ring{width:44px;height:44px;border:8px solid var(--rd);border-radius:50%}
+.sh-arc{width:44px;height:44px;border:8px solid var(--bl);border-radius:50%;clip-path:polygon(0 0,100% 0,100% 55%,0 55%)}
+.sh-pill{width:56px;height:22px;background:var(--gr);border-radius:9999px}
+.sh-rect{width:48px;height:36px;background:var(--bl);border-radius:10px}
+.sh-dots{display:flex;gap:5px;align-items:center}
+.sh-dot{width:12px;height:12px;border-radius:50%}
+.sh-arrow{width:0;height:0;border-top:14px solid transparent;border-bottom:14px solid transparent;border-left:22px solid var(--rd)}
+
+/* ── LOGO USAGE TABLE ── */
+.use-table{width:100%;border-collapse:collapse;margin-bottom:16px;background:var(--surface);border-radius:var(--r-lg);overflow:hidden;border:0.5px solid var(--border)}
+.use-table th{font-size:11px;font-weight:700;color:var(--muted);text-align:left;padding:10px 16px;border-bottom:1px solid var(--border);background:var(--bg)}
+.use-table td{font-size:12px;color:var(--text);padding:10px 16px;border-bottom:0.5px solid var(--border);vertical-align:top;line-height:1.5}
+.use-table tr:last-child td{border-bottom:none}
+
+/* ── MOODBOARD ── */
+.mood-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:24px}
+.mood-card{border-radius:var(--r-lg);aspect-ratio:1;padding:14px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.mood-mark{font-size:9px;font-weight:700;color:rgba(255,255,255,0.7);position:relative;z-index:2}
+.mood-content{position:relative;z-index:2}
+.mood-headline{font-size:13px;font-weight:800;color:#fff;text-transform:uppercase;line-height:1.15;letter-spacing:-0.01em}
+.mood-headline .gr{color:var(--gr)}
+.mood-headline .rd{color:var(--rd)}
+.mood-sub{font-size:9px;color:rgba(255,255,255,0.65);margin-top:3px;line-height:1.4}
+.mood-cta{display:inline-flex;align-items:center;gap:5px;background:var(--rd);border-radius:var(--r-pill);padding:5px 12px;font-size:9px;font-weight:700;color:#fff;margin-top:8px}
+.mood-dots{display:flex;gap:4px;margin-top:8px}
+.mood-dot{width:8px;height:8px;border-radius:50%}
+
+/* ── SHADOWS ── */
+.shadow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.shadow-card{background:var(--surface);border-radius:var(--r-lg);padding:20px;text-align:center}
+.shadow-icon{font-size:28px;margin-bottom:8px}
+.shadow-name{font-size:10px;font-weight:600;color:var(--muted);font-family:monospace}
+
+/* ── VOICE ── */
+.voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.voice-card{padding:14px;border-radius:var(--r-lg);border-left:3px solid transparent}
+.voice-card--ok{background:var(--bl-l);border-left-color:var(--bl)}
+.voice-card--no{background:#F5F5F5;border-left-color:#ddd}
+.voice-badge{font-size:9px;font-weight:700;letter-spacing:0.08em;margin-bottom:5px}
+.voice-badge--ok{color:var(--bl)}
+.voice-badge--no{color:#aaa}
+.voice-text{font-size:12px;font-style:italic;line-height:1.6}
+.voice-text--ok{color:#032254}
+.voice-text--no{color:#999}
+
+.framework-row{display:flex;gap:10px;padding:10px 14px;background:var(--surface);border-radius:var(--r-md);margin-bottom:6px;border:0.5px solid var(--border);align-items:flex-start}
+.framework-letter{font-size:13px;font-weight:800;color:var(--bl);min-width:18px;margin-top:1px}
+.framework-title{font-size:12px;font-weight:600;color:var(--text)}
+.framework-desc{font-size:11px;color:var(--muted);margin-top:1px;line-height:1.5}
+
+/* ── CODE BLOCK ── */
+.code-block{background:#1a1a2e;border-radius:var(--r-lg);padding:16px 20px;font-family:monospace;font-size:12px;color:#e8e8f0;margin-bottom:12px;overflow-x:auto;line-height:1.7}
+.code-block .kw{color:#7B9FFF}
+.code-block .str{color:#FF9F7B}
+.code-block .cm{color:#666}
+
+/* ── DONT ── */
+.dont-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px}
+.dont-card{padding:12px 14px;border-radius:var(--r-lg);border:1px dashed var(--rd);background:var(--rd-l)}
+.dont-title{font-size:10px;font-weight:700;color:var(--rd);margin-bottom:4px}
+.dont-desc{font-size:11px;color:#600505;line-height:1.5}
+
+/* ── FOOTER ── */
+footer{margin-top:64px;padding:24px 0;border-top:1px solid var(--border);font-size:12px;color:var(--muted);display:flex;align-items:center;justify-content:space-between;flex-wrap:gap}
+footer a{color:var(--bl);text-decoration:none}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .sidebar{display:none}
+  .main{margin-left:0;padding:24px 20px}
+  .card-grid,.sample-card-grid,.voice-grid,.dont-grid{grid-template-columns:1fr}
+  .card-full{grid-column:1}
+  .swatch-grid{grid-template-columns:repeat(3,1fr)}
+  .radius-grid,.shapes-grid{grid-template-columns:repeat(2,1fr)}
+  .mood-grid,.shadow-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ SIDEBAR ═══════════════ -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <img src="logos/bleads-logo-horizontal-imagotipo.png" alt="Bleads">
+  </div>
+  <div class="nav-section">Fundamentos</div>
+  <a class="nav-link active" href="#colores">Colores</a>
+  <a class="nav-link" href="#tipografia">Tipografía</a>
+  <a class="nav-link" href="#espaciado">Espaciado</a>
+  <a class="nav-link" href="#formas">Formas</a>
+  <div class="nav-section">Componentes</div>
+  <a class="nav-link" href="#botones">Botones</a>
+  <a class="nav-link" href="#badges">Badges</a>
+  <a class="nav-link" href="#cards">Cards</a>
+  <a class="nav-link" href="#inputs">Inputs</a>
+  <a class="nav-link" href="#sombras">Sombras</a>
+  <div class="nav-section">Identidad</div>
+  <a class="nav-link" href="#logos">Logos</a>
+  <a class="nav-link" href="#voz">Voz de marca</a>
+  <a class="nav-link" href="#moodboard">Moodboard</a>
+  <div class="nav-section">Recursos</div>
+  <a class="nav-link" href="#codigo">Tokens CSS</a>
+</nav>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<main class="main">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">🐺 Bleads SpA · v2025</div>
+    <div class="hero-title">Design System</div>
+    <div class="hero-sub">La guía visual, verbal y técnica de Bleads. Colores, tipografía, componentes, logos y voz de marca en un solo lugar.</div>
+    <div class="hero-badges">
+      <span class="hero-badge">Poppins</span>
+      <span class="hero-badge">#084BB9</span>
+      <span class="hero-badge">#EF2D2D</span>
+      <span class="hero-badge">Efficiency Growth</span>
+      <span class="hero-badge">B2B Industrial</span>
+    </div>
+  </div>
+
+  <!-- ═══ COLORES ═══ -->
+  <section class="section" id="colores">
+    <div class="section-eyebrow">01 — Fundamentos</div>
+    <div class="section-title">Colores</div>
+    <div class="section-desc">Cada color de Bleads representa una industria objetivo. El azul y el rojo son los colores principales — los secundarios se usan para contextos específicos.</div>
+    <div class="divider"></div>
+
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#084BB9"></div><div class="swatch-info"><span class="swatch-name">Blue</span><span class="swatch-hex">#084BB9</span><span class="swatch-role">Principal</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#EF2D2D"></div><div class="swatch-info"><span class="swatch-name">Red</span><span class="swatch-hex">#EF2D2D</span><span class="swatch-role">Acento</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#FF7F00"></div><div class="swatch-info"><span class="swatch-name">Orange</span><span class="swatch-hex">#FF7F00</span><span class="swatch-role">Minería</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#9CF95B"></div><div class="swatch-info"><span class="swatch-name">Green</span><span class="swatch-hex">#9CF95B</span><span class="swatch-role">Forestal</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#00FFD4"></div><div class="swatch-info"><span class="swatch-name">Teal</span><span class="swatch-hex">#00FFD4</span><span class="swatch-role">Energía</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#545454"></div><div class="swatch-info"><span class="swatch-name">Gray</span><span class="swatch-hex">#545454</span><span class="swatch-role">Texto</span></div></div>
+    </div>
+
+    <p style="font-size:11px;color:var(--muted);margin-bottom:10px;font-weight:600">ESCALA AZUL</p>
+    <div class="scale-row">
+      <div class="scale-stop" style="background:#E6EEF7;color:#084BB9">50</div>
+      <div class="scale-stop" style="background:#B3CBE9;color:#063D97">100</div>
+      <div class="scale-stop" style="background:#6699D4">200</div>
+      <div class="scale-stop" style="background:#2B6EC2">300</div>
+      <div class="scale-stop primary" style="background:#084BB9">400</div>
+      <div class="scale-stop" style="background:#063D97">500</div>
+      <div class="scale-stop" style="background:#052F75">600</div>
+      <div class="scale-stop" style="background:#032254">700</div>
+      <div class="scale-stop" style="background:#011432">800</div>
+      <div class="scale-stop" style="background:#000711">900</div>
+    </div>
+
+    <p style="font-size:11px;color:var(--muted);margin:14px 0 10px;font-weight:600">ESCALA ROJA</p>
+    <div class="scale-row">
+      <div class="scale-stop" style="background:#FDE9E9;color:#EF2D2D">50</div>
+      <div class="scale-stop" style="background:#F9BEBE;color:#A81515">100</div>
+      <div class="scale-stop" style="background:#F48585">200</div>
+      <div class="scale-stop" style="background:#F25050">300</div>
+      <div class="scale-stop primary" style="background:#EF2D2D">400</div>
+      <div class="scale-stop" style="background:#CC1E1E">500</div>
+      <div class="scale-stop" style="background:#A81515">600</div>
+      <div class="scale-stop" style="background:#840D0D">700</div>
+      <div class="scale-stop" style="background:#600505">800</div>
+      <div class="scale-stop" style="background:#3D0000">900</div>
+    </div>
+  </section>
+
+  <!-- ═══ TIPOGRAFÍA ═══ -->
+  <section class="section" id="tipografia">
+    <div class="section-eyebrow">02 — Fundamentos</div>
+    <div class="section-title">Tipografía</div>
+    <div class="section-desc">La fuente oficial es <strong>Poppins</strong> (Google Fonts). Se usa en todos los contextos sin excepción.</div>
+    <div class="divider"></div>
+
+    <div class="type-card">
+      <div style="font-family:'Poppins',sans-serif;font-size:48px;font-weight:800;color:#084BB9;line-height:1.05;letter-spacing:-0.03em">Bleads B2B</div>
+      <div class="type-meta"><span class="type-pill">800 ExtraBold</span><span class="type-pill">48px</span><span class="type-pill">Display / Hero</span></div>
+    </div>
+    <div class="type-card">
+      <div style="font-family:'Poppins',sans-serif;font-size:32px;font-weight:700;color:#084BB9;line-height:1.1;letter-spacing:-0.02em">Crecimiento e Innovación</div>
+      <div class="type-meta"><span class="type-pill">700 Bold</span><span class="type-pill">32px</span><span class="type-pill">H1</span></div>
+    </div>
+    <div class="type-card">
+      <div style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:600;color:#084BB9">Estrategia Comercial B2B</div>
+      <div class="type-meta"><span class="type-pill">600 SemiBold</span><span class="type-pill">24px</span><span class="type-pill">H2</span></div>
+    </div>
+    <div class="type-card">
+      <div style="font-family:'Poppins',sans-serif;font-size:18px;font-weight:600;color:#545454">Prospección y Ventas</div>
+      <div class="type-meta"><span class="type-pill">600 SemiBold</span><span class="type-pill">18px</span><span class="type-pill">H3</span></div>
+    </div>
+    <div class="type-card">
+      <div style="font-family:'Poppins',sans-serif;font-size:16px;font-weight:400;color:#545454;line-height:1.7">Bleads impulsa el crecimiento de empresas B2B en Chile. Creamos estrategias innovadoras, optimizamos funneles de conversión y generamos leads cualificados para nuestros clientes.</div>
+      <div class="type-meta"><span class="type-pill">400 Regular</span><span class="type-pill">16px</span><span class="type-pill">Body</span></div>
+    </div>
+    <div class="type-card">
+      <div style="font-family:'Poppins',sans-serif;font-size:12px;font-weight:300;color:#828282;letter-spacing:0.04em">* Nota al pie · Información reducida · Poppins Light 12px</div>
+      <div class="type-meta"><span class="type-pill">300 Light</span><span class="type-pill">12px</span><span class="type-pill">Caption / Footnote</span></div>
+    </div>
+  </section>
+
+  <!-- ═══ ESPACIADO ═══ -->
+  <section class="section" id="espaciado">
+    <div class="section-eyebrow">03 — Fundamentos</div>
+    <div class="section-title">Espaciado</div>
+    <div class="section-desc">Escala de espaciado basada en múltiplos de 4px. Usar siempre los tokens, nunca valores arbitrarios.</div>
+    <div class="divider"></div>
+
+    <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:24px">
+      <div class="space-row"><span class="space-token">--space-1</span><div class="space-vis" style="width:60px"><div class="space-vis-inner" style="width:4px"></div></div><span class="space-val">4px · 0.25rem</span></div>
+      <div class="space-row"><span class="space-token">--space-2</span><div class="space-vis" style="width:60px"><div class="space-vis-inner" style="width:8px"></div></div><span class="space-val">8px · 0.5rem</span></div>
+      <div class="space-row"><span class="space-token">--space-3</span><div class="space-vis" style="width:60px"><div class="space-vis-inner" style="width:12px"></div></div><span class="space-val">12px · 0.75rem</span></div>
+      <div class="space-row"><span class="space-token">--space-4</span><div class="space-vis" style="width:80px"><div class="space-vis-inner" style="width:16px"></div></div><span class="space-val">16px · 1rem</span></div>
+      <div class="space-row"><span class="space-token">--space-6</span><div class="space-vis" style="width:100px"><div class="space-vis-inner" style="width:24px"></div></div><span class="space-val">24px · 1.5rem</span></div>
+      <div class="space-row"><span class="space-token">--space-8</span><div class="space-vis" style="width:140px"><div class="space-vis-inner" style="width:32px"></div></div><span class="space-val">32px · 2rem</span></div>
+      <div class="space-row"><span class="space-token">--space-12</span><div class="space-vis" style="width:180px"><div class="space-vis-inner" style="width:48px"></div></div><span class="space-val">48px · 3rem</span></div>
+      <div class="space-row"><span class="space-token">--space-16</span><div class="space-vis" style="width:240px"><div class="space-vis-inner" style="width:64px"></div></div><span class="space-val">64px · 4rem</span></div>
+      <div class="space-row"><span class="space-token">--space-24</span><div class="space-vis" style="width:340px"><div class="space-vis-inner" style="width:96px"></div></div><span class="space-val">96px · 6rem</span></div>
+    </div>
+
+    <p style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;font-size:10px">Border Radius</p>
+    <div class="radius-grid">
+      <div class="radius-card"><div class="radius-demo" style="border-radius:4px"></div><div class="radius-name">--r-sm</div><div class="radius-val">4px</div></div>
+      <div class="radius-card"><div class="radius-demo" style="border-radius:8px"></div><div class="radius-name">--r-md</div><div class="radius-val">8px</div></div>
+      <div class="radius-card"><div class="radius-demo" style="border-radius:12px"></div><div class="radius-name">--r-lg</div><div class="radius-val">12px</div></div>
+      <div class="radius-card"><div class="radius-demo" style="border-radius:16px"></div><div class="radius-name">--r-xl</div><div class="radius-val">16px</div></div>
+      <div class="radius-card"><div class="radius-demo" style="border-radius:24px"></div><div class="radius-name">--r-2xl</div><div class="radius-val">24px</div></div>
+      <div class="radius-card"><div class="radius-demo" style="border-radius:9999px"></div><div class="radius-name">--r-pill</div><div class="radius-val">9999px</div></div>
+    </div>
+  </section>
+
+  <!-- ═══ FORMAS ═══ -->
+  <section class="section" id="formas">
+    <div class="section-eyebrow">04 — Fundamentos</div>
+    <div class="section-title">Elementos visuales</div>
+    <div class="section-desc">Formas geométricas extraídas del logo y del lenguaje visual. Cada una tiene un rol específico — no son decoración aleatoria.</div>
+    <div class="divider"></div>
+
+    <div class="shapes-grid">
+      <div class="shape-card"><div class="shape-show"><div class="sh-circle"></div></div><div class="shape-name">Círculo rojo</div><div class="shape-rule">Luna del logo · Siempre recortado en el borde</div></div>
+      <div class="shape-card"><div class="shape-show"><div class="sh-semicircle"></div></div><div class="shape-name">Semicírculo azul</div><div class="shape-rule">Separador · Fondo de sección</div></div>
+      <div class="shape-card"><div class="shape-show"><div class="sh-ring"></div></div><div class="shape-name">Anillo rojo</div><div class="shape-rule">Frame · Decoración secundaria</div></div>
+      <div class="shape-card"><div class="shape-show"><div class="sh-arc"></div></div><div class="shape-name">Arco azul</div><div class="shape-rule">Energía · Movimiento</div></div>
+      <div class="shape-card"><div class="shape-show"><div class="sh-pill"></div></div><div class="shape-name">Cápsula verde</div><div class="shape-rule">Badge · CTA · Contenedor de texto</div></div>
+      <div class="shape-card"><div class="shape-show"><div class="sh-rect"></div></div><div class="shape-name">Rect. redondeado</div><div class="shape-rule">Contenedor principal de contenido</div></div>
+      <div class="shape-card"><div class="shape-show"><div class="sh-dots"><div class="sh-dot" style="background:#EF2D2D"></div><div class="sh-dot" style="background:#9CF95B"></div><div class="sh-dot" style="background:#084BB9"></div></div></div><div class="shape-name">3 puntos</div><div class="shape-rule">Firma visual de Bleads · Elemento de cierre</div></div>
+      <div class="shape-card"><div class="shape-show"><div class="sh-arrow"></div></div><div class="shape-name">Flecha roja</div><div class="shape-rule">CTA · Acción · Dirección</div></div>
+    </div>
+
+    <div style="background:var(--bl-l);border-radius:var(--r-lg);padding:16px 20px;border-left:3px solid var(--bl)">
+      <p style="font-size:11px;font-weight:700;color:var(--bl);margin-bottom:6px">REGLAS DE COMPOSICIÓN</p>
+      <p style="font-size:12px;color:#032254;line-height:1.7">Los círculos siempre van <strong>parcialmente recortados</strong> por el borde del frame — nunca completos y centrados. La asimetría es intencional. Los elementos se ubican en esquinas y bordes para dar dinamismo. El verde flúor (#9CF95B) solo se usa para destacar palabras clave en titulares, nunca como fondo principal.</p>
+    </div>
+  </section>
+
+  <!-- ═══ BOTONES ═══ -->
+  <section class="section" id="botones">
+    <div class="section-eyebrow">05 — Componentes</div>
+    <div class="section-title">Botones</div>
+    <div class="section-desc">Todos los botones usan border-radius pill (9999px). El primario azul es el CTA principal en todas las piezas.</div>
+    <div class="divider"></div>
+
+    <p style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">VARIANTES</p>
+    <div class="btn-row">
+      <button class="btn btn-primary">Agendar Demo</button>
+      <button class="btn btn-secondary">Ver Servicios</button>
+      <button class="btn btn-danger">Eliminar</button>
+      <button class="btn btn-ghost">Cancelar</button>
+    </div>
+
+    <p style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin:16px 0 10px">TAMAÑOS</p>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm">Small</button>
+      <button class="btn btn-primary">Default</button>
+      <button class="btn btn-primary btn-lg">Large · Principal CTA</button>
+    </div>
+
+    <p style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin:16px 0 10px">SOBRE FONDO OSCURO</p>
+    <div style="background:var(--bl);padding:20px;border-radius:var(--r-lg)">
+      <div class="btn-row">
+        <button class="btn" style="background:#fff;color:var(--bl);border-color:#fff">Agendar Demo</button>
+        <button class="btn" style="background:transparent;color:#fff;border-color:rgba(255,255,255,0.5)">Ver Servicios</button>
+        <button class="btn" style="background:var(--rd);color:#fff;border-color:var(--rd)">Contáctanos ↗</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BADGES ═══ -->
+  <section class="section" id="badges">
+    <div class="section-eyebrow">06 — Componentes</div>
+    <div class="section-title">Badges y Tags</div>
+    <div class="section-desc">Etiquetas para categorizar industrias, estados y contenidos. Usar el color que corresponde a la industria objetivo.</div>
+    <div class="divider"></div>
+
+    <div class="badge-row">
+      <span class="badge badge-blue">B2B</span>
+      <span class="badge badge-red">Nuevo</span>
+      <span class="badge badge-green">Activo</span>
+      <span class="badge badge-orange">Minería</span>
+      <span class="badge badge-teal">Energía</span>
+      <span class="badge badge-gray">Borrador</span>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-blue">Marketing</span>
+      <span class="badge badge-blue">Ventas B2B</span>
+      <span class="badge badge-red">Urgente</span>
+      <span class="badge badge-green">Forestal</span>
+      <span class="badge badge-orange">Industrial</span>
+      <span class="badge badge-gray">Inactivo</span>
+    </div>
+  </section>
+
+  <!-- ═══ CARDS ═══ -->
+  <section class="section" id="cards">
+    <div class="section-eyebrow">07 — Componentes</div>
+    <div class="section-title">Cards</div>
+    <div class="section-desc">Contenedores principales de contenido. Usar border-radius xl (16px) y sombra md para cards estándar.</div>
+    <div class="divider"></div>
+
+    <div class="sample-card-grid">
+      <div class="sample-card">
+        <div class="sample-card-label">Servicio</div>
+        <div class="sample-card-title">Marketing Estratégico</div>
+        <div class="sample-card-body">Posicionamiento B2B, campañas pagadas y generación de demanda cualificada.</div>
+      </div>
+      <div class="sample-card sample-card--blue">
+        <div class="sample-card-label">Destacado</div>
+        <div class="sample-card-title">Prospección Comercial</div>
+        <div class="sample-card-body">Identificación de perfiles clave, contacto directo y entrega de leads listos para cerrar.</div>
+      </div>
+      <div class="sample-card sample-card--red">
+        <div class="sample-card-label">Nuevo</div>
+        <div class="sample-card-title">Equipo Comercial Ready</div>
+        <div class="sample-card-body">Estructuramos y optimizamos tu área comercial completa de forma sostenible.</div>
+      </div>
+      <div class="sample-card sample-card--featured">
+        <div class="sample-card-label" style="color:var(--rd)">⭐ Más popular</div>
+        <div class="sample-card-title">Ventas B2B</div>
+        <div class="sample-card-body">Apoyo en objeciones, propuestas y cierres. Capacitación y procesos incluidos.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INPUTS ═══ -->
+  <section class="section" id="inputs">
+    <div class="section-eyebrow">08 — Componentes</div>
+    <div class="section-title">Inputs y formularios</div>
+    <div class="section-desc">Campos de texto con borde azul en focus. Siempre usar Poppins y el color de borde corporativo.</div>
+    <div class="divider"></div>
+
+    <div class="input-demo">
+      <div><label class="input-label">Nombre de empresa</label><input class="input" type="text" placeholder="Ej: Minera del Norte S.A."></div>
+      <div><label class="input-label">Email corporativo</label><input class="input" type="email" placeholder="gerente@empresa.cl"></div>
+      <div><label class="input-label">Industria</label>
+        <select class="input" style="appearance:none;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><path fill=%22%23545454%22 d=%22M4 6l4 4 4-4%22/></svg>');background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:36px">
+          <option>Minería</option><option>Ingeniería</option><option>Forestal</option><option>Energía</option>
+        </select>
+      </div>
+      <div><label class="input-label">Mensaje</label><textarea class="input" rows="3" placeholder="¿En qué podemos ayudarte?" style="resize:vertical"></textarea></div>
+    </div>
+  </section>
+
+  <!-- ═══ SOMBRAS ═══ -->
+  <section class="section" id="sombras">
+    <div class="section-eyebrow">09 — Componentes</div>
+    <div class="section-title">Sombras</div>
+    <div class="section-desc">Sombras con tono azul corporativo. Usar la escala correcta según la jerarquía del elemento.</div>
+    <div class="divider"></div>
+
+    <div class="shadow-grid">
+      <div class="shadow-card" style="box-shadow:0 1px 3px rgba(8,75,185,0.08)"><div class="shadow-icon">📄</div><div class="shadow-name">shadow-sm</div></div>
+      <div class="shadow-card" style="box-shadow:0 4px 16px rgba(8,75,185,0.12)"><div class="shadow-icon">📋</div><div class="shadow-name">shadow-md</div></div>
+      <div class="shadow-card" style="box-shadow:0 8px 32px rgba(8,75,185,0.16)"><div class="shadow-icon">🗂</div><div class="shadow-name">shadow-lg</div></div>
+      <div class="shadow-card" style="box-shadow:0 16px 48px rgba(8,75,185,0.20)"><div class="shadow-icon">📦</div><div class="shadow-name">shadow-xl</div></div>
+    </div>
+  </section>
+
+  <!-- ═══ LOGOS ═══ -->
+  <section class="section" id="logos">
+    <div class="section-eyebrow">10 — Identidad</div>
+    <div class="section-title">Logos</div>
+    <div class="section-desc">7 variantes oficiales. Cada una tiene un contexto específico de uso. Nunca distorsionar, recolorear ni separar el isotipo del wordmark sin motivo.</div>
+    <div class="divider"></div>
+
+    <div class="card-grid">
+      <div class="card card-full">
+        <div class="card-preview bg-white full"><img src="logos/bleads-logo-full.png" alt="Bleads Imagotipo Full"></div>
+        <div class="card-body">
+          <div class="card-name">01 — Imagotipo Full</div>
+          <div class="card-desc">Versión completa: isotipo + wordmark + línea + "EFFICIENCY GROWTH". Para propuestas comerciales y documentos institucionales.</div>
+          <div class="tags"><span class="tag tag-use">Propuestas</span><span class="tag tag-use">Documentos</span><span class="tag tag-warn">No en tamaño chico</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-preview bg-white"><img src="logos/bleads-logo-horizontal-imagotipo.png" alt="Bleads Imagotipo"></div>
+        <div class="card-body">
+          <div class="card-name">02 — Imagotipo</div>
+          <div class="card-desc">Isotipo + wordmark. Versión principal digital, web y RRSS. Sobre fondo blanco.</div>
+          <div class="tags"><span class="tag tag-use">Web</span><span class="tag tag-use">RRSS</span><span class="tag tag-use">Email</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-preview bg-white"><img src="logos/bleads-logo-horizontal-logotipo.png" alt="Bleads Logotipo"></div>
+        <div class="card-body">
+          <div class="card-name">03 — Logotipo</div>
+          <div class="card-desc">Solo el wordmark. Para fondos de color corporativo donde el isotipo pierde legibilidad.</div>
+          <div class="tags"><span class="tag tag-use">Fondo azul</span><span class="tag tag-use">Fondo rojo</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-preview bg-gray sm"><img src="logos/bleads-logo-horizontal-isotipo-lobo-luna.png" alt="Bleads Isotipo lobo luna"></div>
+        <div class="card-body">
+          <div class="card-name">04 — Isotipo full (lobo+luna)</div>
+          <div class="card-desc">Silueta del lobo sobre círculo rojo. Para avatar, favicon y app icon.</div>
+          <div class="tags"><span class="tag tag-use">Avatar</span><span class="tag tag-use">Favicon</span><span class="tag tag-use">App icon</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-preview bg-gray sm"><img src="logos/bleads-logo-horizontal-isotipo-lobo.png" alt="Bleads Isotipo lobo"></div>
+        <div class="card-body">
+          <div class="card-name">05 — Isotipo simple (lobo)</div>
+          <div class="card-desc">Solo la silueta del lobo sin círculo. Elemento gráfico versátil, decoración y watermark.</div>
+          <div class="tags"><span class="tag tag-use">Decorativo</span><span class="tag tag-use">Watermark</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-preview bg-dark"><img src="logos/bleads-logo-horizontal-imagotipo-blanco.png" alt="Bleads blanco luna roja"></div>
+        <div class="card-body">
+          <div class="card-name">06 — Imagotipo blanco (luna roja)</div>
+          <div class="card-desc">Versión negativa. Para fondos oscuros, negro y videos.</div>
+          <div class="tags"><span class="tag tag-use">Fondo oscuro</span><span class="tag tag-use">Videos</span><span class="tag tag-use">Dark mode</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-preview bg-blue"><img src="logos/bleads-logo-horizontal-imagotipo-blanco-2.png" alt="Bleads blanco luna azul"></div>
+        <div class="card-body">
+          <div class="card-name">07 — Imagotipo blanco (luna azul)</div>
+          <div class="card-desc">Versión negativa sobre azul de marca. Para fondo #084BB9 y presentaciones.</div>
+          <div class="tags"><span class="tag tag-use">Sobre #084BB9</span><span class="tag tag-use">Presentaciones</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin:28px 0 12px">REGLAS DE USO</p>
+    <table class="use-table">
+      <tr><th>Fondo</th><th>Versión recomendada</th><th>Prohibido</th></tr>
+      <tr><td>Blanco</td><td>✅ Cualquier variante de color</td><td>Versiones blancas</td></tr>
+      <tr><td>Azul #084BB9</td><td>✅ Versión 07 o logotipo blanco</td><td>Imagotipo color</td></tr>
+      <tr><td>Rojo #EF2D2D</td><td>✅ Logotipo blanco · Isotipo simple</td><td>Imagotipo color</td></tr>
+      <tr><td>Oscuro / negro</td><td>✅ Versión 06 (luna roja)</td><td>Imagotipo color sin lockup</td></tr>
+      <tr><td>Avatar / favicon</td><td>✅ Versión 04 o 05</td><td>Imagotipo full (ilegible)</td></tr>
+      <tr><td>Fotografía</td><td>✅ Lockup · Logotipo blanco</td><td>Imagotipo sin contraste</td></tr>
+    </table>
+
+    <p style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin:20px 0 12px">NUNCA HACER ESTO</p>
+    <div class="dont-grid">
+      <div class="dont-card"><div class="dont-title">✗ Cambiar los colores</div><div class="dont-desc">Solo azul #084BB9, rojo #EF2D2D y blanco son permitidos.</div></div>
+      <div class="dont-card"><div class="dont-title">✗ Deformar o estirar</div><div class="dont-desc">Siempre escalar de forma proporcional, nunca distorsionar.</div></div>
+      <div class="dont-card"><div class="dont-title">✗ Añadir efectos</div><div class="dont-desc">Sin sombras, brillos, contornos, gradientes ni filtros sobre el logo.</div></div>
+      <div class="dont-card"><div class="dont-title">✗ Fondo no corporativo</div><div class="dont-desc">En naranja, verde o teal usar solo logotipo blanco, nunca imagotipo color.</div></div>
+    </div>
+  </section>
+
+  <!-- ═══ VOZ ═══ -->
+  <section class="section" id="voz">
+    <div class="section-eyebrow">11 — Identidad</div>
+    <div class="section-title">Voz de marca</div>
+    <div class="section-desc">Bleads es el <strong>Héroe Rebelde</strong> del mundo B2B. Audaz, directo, disruptivo e inspirador. Nunca genérico, nunca pasivo.</div>
+    <div class="divider"></div>
+
+    <div class="voice-grid">
+      <div class="voice-card voice-card--ok">
+        <div class="voice-badge voice-badge--ok">✅ ASÍ SÍ</div>
+        <div class="voice-text voice-text--ok">"Transformamos el mundo B2B con disrupción y liderazgo valiente. No hacemos marketing: hacemos que vendas más."</div>
+      </div>
+      <div class="voice-card voice-card--no">
+        <div class="voice-badge voice-badge--no">❌ ASÍ NO</div>
+        <div class="voice-text voice-text--no">"Somos una empresa de marketing que provee soluciones integrales para distintos tipos de empresas."</div>
+      </div>
+      <div class="voice-card voice-card--ok">
+        <div class="voice-badge voice-badge--ok">✅ ASÍ SÍ</div>
+        <div class="voice-text voice-text--ok">"B2B no es fácil. Por eso existimos. Te acompañamos a tomar mejores decisiones y ejecutarlas con excelencia."</div>
+      </div>
+      <div class="voice-card voice-card--no">
+        <div class="voice-badge voice-badge--no">❌ ASÍ NO</div>
+        <div class="voice-text voice-text--no">"Nuestras soluciones permiten optimizar los procesos de gestión comercial de manera eficiente y escalable."</div>
+      </div>
+    </div>
+
+    <p style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin:20px 0 12px">FRAMEWORK A·B·C·D·E</p>
+    <div class="framework-row"><span class="framework-letter">A</span><div><div class="framework-title">Attention</div><div class="framework-desc">Efecto WOW que capture atención inmediata. Cada pieza debe generar interés en los primeros 2 segundos.</div></div></div>
+    <div class="framework-row"><span class="framework-letter">B</span><div><div class="framework-title">Branded</div><div class="framework-desc">Sin logo, debe verse y sonar como Bleads. Los valores, personalidad y estilo deben ser reconocibles.</div></div></div>
+    <div class="framework-row"><span class="framework-letter" style="color:var(--rd)">C</span><div><div class="framework-title">Creativity</div><div class="framework-desc">Creatividad con objetivo, nunca decorativa. Siempre hay un fin estratégico detrás del elemento creativo.</div></div></div>
+    <div class="framework-row"><span class="framework-letter" style="color:var(--rd)">D</span><div><div class="framework-title">Delivery</div><div class="framework-desc">Canales que hacen sentido con el target B2B. Maximizar el potencial comunicacional en cada medio.</div></div></div>
+    <div class="framework-row"><span class="framework-letter">E</span><div><div class="framework-title">Effective</div><div class="framework-desc">Siempre medimos para validar resultados. Sin métricas no hay aprendizaje.</div></div></div>
+  </section>
+
+  <!-- ═══ MOODBOARD ═══ -->
+  <section class="section" id="moodboard">
+    <div class="section-eyebrow">12 — Identidad</div>
+    <div class="section-title">Moodboard RRSS</div>
+    <div class="section-desc">Patrones visuales del estilo Bleads en redes sociales. Fondo de color + persona recortada + titular en mayúsculas + elemento gráfico cortado.</div>
+    <div class="divider"></div>
+
+    <div class="mood-grid">
+      <div class="mood-card" style="background:var(--bl)">
+        <div style="position:absolute;top:-20px;right:-20px;width:80px;height:80px;border:12px solid rgba(255,255,255,0.15);border-radius:50%"></div>
+        <div class="mood-mark">🐺 BLEADS</div>
+        <div class="mood-content">
+          <div class="mood-headline">Datos +<br>Estrategia =<br><span class="gr">Crecimiento</span></div>
+          <div class="mood-dots"><div class="mood-dot" style="background:var(--rd)"></div><div class="mood-dot" style="background:var(--gr)"></div><div class="mood-dot" style="background:rgba(255,255,255,0.4)"></div></div>
+        </div>
+      </div>
+      <div class="mood-card" style="background:#fff;border:0.5px solid var(--border)">
+        <div style="position:absolute;bottom:-20px;right:-20px;width:70px;height:70px;background:var(--rd);border-radius:50%;opacity:0.15"></div>
+        <div class="mood-mark" style="color:var(--bl)">🐺 BLEADS</div>
+        <div class="mood-content">
+          <div class="mood-headline" style="color:var(--bl)">No seguimos<br>el juego.</div>
+          <div class="mood-headline" style="color:var(--rd)">Lo cambiamos.</div>
+          <div style="width:28px;height:2px;background:var(--gr);margin-top:8px"></div>
+        </div>
+      </div>
+      <div class="mood-card" style="background:var(--rd)">
+        <div style="position:absolute;top:-16px;left:-16px;width:60px;height:60px;border:8px solid rgba(255,255,255,0.2);border-radius:50%"></div>
+        <div class="mood-mark">🐺 BLEADS</div>
+        <div class="mood-content">
+          <div class="mood-headline">Menos<br>excusas.<br>Más<br>crecimiento.</div>
+        </div>
+      </div>
+      <div class="mood-card" style="background:var(--bl)">
+        <div style="position:absolute;right:-8px;bottom:20px;width:48px;height:48px;background:var(--gr);border-radius:50%;opacity:0.5"></div>
+        <div class="mood-mark">🐺 BLEADS</div>
+        <div class="mood-content">
+          <div class="mood-headline">+127%<br><span style="font-size:9px;font-weight:400;color:rgba(255,255,255,0.7);text-transform:none">Aumento en oportunidades comerciales</span></div>
+          <div class="mood-cta">SOMOS LOBOS</div>
+        </div>
+      </div>
+      <div class="mood-card" style="background:#fff;border:0.5px solid var(--border)">
+        <div class="mood-mark" style="color:var(--bl)">🐺 BLEADS</div>
+        <div class="mood-content">
+          <div class="mood-headline" style="color:var(--bl)">B2B no<br>es fácil.</div>
+          <div class="mood-headline" style="color:var(--rd)">Por eso<br>existimos.</div>
+        </div>
+      </div>
+      <div class="mood-card" style="background:var(--bl)">
+        <div style="position:absolute;bottom:-20px;left:-20px;width:90px;height:90px;border:14px solid var(--rd);border-radius:50%;opacity:0.3"></div>
+        <div class="mood-mark">🐺 BLEADS</div>
+        <div class="mood-content">
+          <div class="mood-headline">¿Listo para<br>el siguiente<br>nivel?</div>
+          <div class="mood-cta">HABLEMOS ↗</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CÓDIGO ═══ -->
+  <section class="section" id="codigo">
+    <div class="section-eyebrow">13 — Recursos</div>
+    <div class="section-title">Tokens CSS</div>
+    <div class="section-desc">Copia el link en tu proyecto para usar todos los tokens de Bleads directamente desde GitHub.</div>
+    <div class="divider"></div>
+
+    <p style="font-size:11px;font-weight:600;color:var(--muted);margin-bottom:8px">IMPORTAR VÍA CDN</p>
+    <div class="code-block"><span class="cm">&lt;!-- En tu &lt;head&gt; --&gt;</span>
+<span class="kw">&lt;link</span> rel=<span class="str">"stylesheet"</span> href=<span class="str">"https://raw.githubusercontent.com/frbahamondes/bleads-design-system/main/tokens/bleads-tokens.css"</span><span class="kw">&gt;</span>
+<span class="kw">&lt;link</span> href=<span class="str">"https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"</span> rel=<span class="str">"stylesheet"</span><span class="kw">&gt;</span></div>
+
+    <p style="font-size:11px;font-weight:600;color:var(--muted);margin:16px 0 8px">USO EN CSS</p>
+    <div class="code-block"><span class="cm">/* Botón principal Bleads */</span>
+<span class="kw">.mi-boton</span> {
+  background-color: <span class="str">var(--bleads-blue)</span>;
+  color: <span class="str">#ffffff</span>;
+  border-radius: <span class="str">var(--radius-pill)</span>;
+  padding: <span class="str">var(--space-3) var(--space-6)</span>;
+  font-family: <span class="str">var(--font-primary)</span>;
+  font-weight: <span class="str">var(--font-semibold)</span>;
+}
+
+<span class="cm">/* Título H1 Bleads */</span>
+<span class="kw">.mi-titulo</span> {
+  font-family: <span class="str">var(--font-primary)</span>;
+  font-size: <span class="str">var(--text-5xl)</span>;
+  font-weight: <span class="str">var(--font-bold)</span>;
+  color: <span class="str">var(--bleads-blue)</span>;
+  letter-spacing: <span class="str">var(--tracking-tight)</span>;
+}</div>
+
+    <p style="font-size:11px;font-weight:600;color:var(--muted);margin:16px 0 8px">FIGMA — TOKENS STUDIO</p>
+    <div class="code-block"><span class="cm">1. Instalar plugin "Tokens Studio for Figma"</span>
+<span class="cm">2. Load from file → figma-export/bleads-figma-tokens.json</span>
+<span class="cm">3. Aplicar tokens a componentes</span>
+<span class="cm">4. Sync con este repo vía GitHub para actualizaciones automáticas</span></div>
+  </section>
+
+  <footer>
+    <span>Bleads Design System v2025 · <a href="https://bleads.cl">bleads.cl</a></span>
+    <span><a href="mailto:francisca@bleads.cl">francisca@bleads.cl</a> · <a href="https://github.com/frbahamondes/bleads-design-system">GitHub</a></span>
+  </footer>
+
+</main>
+
+<script>
+// Active nav on scroll
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 80) current = s.id; });
+  navLinks.forEach(l => {
+    l.classList.remove('active');
+    if(l.getAttribute('href') === '#' + current) l.classList.add('active');
+  });
+});
+// Smooth scroll
+navLinks.forEach(l => {
+  l.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
