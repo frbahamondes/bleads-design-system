@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bleads — Logo Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================
+     BLEADS DESIGN SYSTEM — Logo Guide
+     Actualizar BASE_URL con tu repo de GitHub:
+     https://raw.githubusercontent.com/TU-USUARIO/bleads-design-system/main/logos/
+  ============================================ */
+
+  :root {
+    --bl: #084BB9;
+    --rd: #EF2D2D;
+    --gr: #9CF95B;
+    --gy: #545454;
+    --bl-l: #E6EEF7;
+    --rd-l: #FDE9E9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #F5F7FB;
+    color: var(--gy);
+    padding: 40px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  header { margin-bottom: 40px; }
+  header h1 { font-size: 32px; font-weight: 700; color: var(--bl); letter-spacing: -0.02em; }
+  header p { font-size: 14px; color: #828282; margin-top: 4px; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #828282;
+    margin: 32px 0 12px;
+  }
+
+  /* LOGO GRID */
+  .logo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .logo-full { grid-column: 1 / -1; }
+
+  .logo-card {
+    background: white;
+    border-radius: 14px;
+    border: 0.5px solid rgba(8,75,185,0.12);
+    overflow: hidden;
+  }
+
+  .logo-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    min-height: 120px;
+  }
+
+  .logo-preview img {
+    max-height: 72px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .logo-preview.full img { max-height: 56px; }
+  .bg-white  { background: #ffffff; }
+  .bg-gray   { background: #F5F7FB; border-bottom: 0.5px solid rgba(8,75,185,0.08); }
+  .bg-dark   { background: #0A0A0A; }
+  .bg-blue   { background: #084BB9; }
+
+  .logo-meta { padding: 14px 16px; border-top: 0.5px solid rgba(8,75,185,0.08); }
+  .logo-name { font-size: 12px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+  .logo-desc { font-size: 11px; color: #828282; line-height: 1.55; margin-bottom: 8px; }
+
+  .tags { display: flex; gap: 5px; flex-wrap: wrap; }
+  .tag {
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 9999px;
+  }
+  .tag-use  { background: var(--bl-l); color: var(--bl); }
+  .tag-warn { background: #FFF3E0;     color: #994C00; }
+  .tag-err  { background: var(--rd-l); color: var(--rd); }
+
+  /* USE RULES */
+  .rules { display: flex; flex-direction: column; gap: 6px; }
+  .rule {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    background: white;
+    border-radius: 10px;
+    border: 0.5px solid rgba(8,75,185,0.1);
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .rule-icon { font-size: 14px; min-width: 20px; margin-top: 1px; }
+  .rule strong { font-weight: 600; color: #1a1a1a; display: block; margin-bottom: 1px; }
+
+  /* DONT DO */
+  .dont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .dont-card {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px dashed var(--rd);
+    background: var(--rd-l);
+  }
+  .dont-title { font-size: 10px; font-weight: 700; color: var(--rd); margin-bottom: 4px; }
+  .dont-desc  { font-size: 10px; color: #600505; line-height: 1.5; }
+
+  /* SAFETY AREA */
+  .safety {
+    background: white;
+    border-radius: 12px;
+    border: 0.5px solid rgba(8,75,185,0.12);
+    padding: 16px 20px;
+    font-size: 12px;
+    color: #828282;
+    line-height: 1.7;
+  }
+  .safety strong { color: var(--bl); }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 0.5px solid rgba(8,75,185,0.12);
+    font-size: 11px;
+    color: #aaa;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Bleads — Guía de Logos</h1>
+  <p>7 variantes oficiales · Reglas de uso · Área de seguridad · v2025</p>
+</header>
+
+<!-- ===================== LOGOS ===================== -->
+<div class="section-label">Las 7 variantes oficiales</div>
+
+<div class="logo-grid">
+
+  <!-- 01 Full -->
+  <div class="logo-card logo-full">
+    <div class="logo-preview bg-white full">
+      <!-- Reemplazar src con URL de GitHub Raw cuando subas los archivos -->
+      <!-- https://raw.githubusercontent.com/TU-USUARIO/bleads-design-system/main/logos/bleads-logo-full.png -->
+      <img src="logos/bleads-logo-full.png" alt="Bleads Imagotipo Full con Efficiency Growth">
+    </div>
+    <div class="logo-meta">
+      <div class="logo-name">01 — Imagotipo Full</div>
+      <div class="logo-desc">Versión completa: isotipo + wordmark + línea separadora + tagline "EFFICIENCY GROWTH". Usar para propuestas comerciales, documentos institucionales y presentaciones formales.</div>
+      <div class="tags">
+        <span class="tag tag-use">Propuestas</span>
+        <span class="tag tag-use">Institucional</span>
+        <span class="tag tag-use">Documentos formales</span>
+        <span class="tag tag-warn">No usar en tamaño reducido</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 Imagotipo -->
+  <div class="logo-card">
+    <div class="logo-preview bg-white">
+      <img src="logos/bleads-logo-horizontal-imagotipo.png" alt="Bleads Imagotipo">
+    </div>
+    <div class="logo-meta">
+      <div class="logo-name">02 — Imagotipo</div>
+      <div class="logo-desc">Isotipo + wordmark. Versión principal para uso digital, web y RRSS. Sobre fondo blanco.</div>
+      <div class="tags">
+        <span class="tag tag-use">Web</span>
+        <span class="tag tag-use">RRSS</span>
+        <span class="tag tag-use">Email</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 Logotipo -->
+  <div class="logo-card">
+    <div class="logo-preview bg-white">
+      <img src="logos/bleads-logo-horizontal-logotipo.png" alt="Bleads Logotipo solo texto">
+    </div>
+    <div class="logo-meta">
+      <div class="logo-name">03 — Logotipo</div>
+      <div class="logo-desc">Solo el wordmark "Bleads". Para fondos de color corporativo donde el isotipo pierde legibilidad.</div>
+      <div class="tags">
+        <span class="tag tag-use">Fondo azul</span>
+        <span class="tag tag-use">Fondo rojo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 Isotipo lobo+luna -->
+  <div class="logo-card">
+    <div class="logo-preview bg-gray">
+      <img src="logos/bleads-logo-horizontal-isotipo-lobo-luna.png" alt="Bleads Isotipo lobo con luna roja">
+    </div>
+    <div class="logo-meta">
+      <div class="logo-name">04 — Isotipo full (lobo+luna)</div>
+      <div class="logo-desc">Ícono completo: silueta del lobo sobre círculo rojo. Para avatar, favicon y usos donde el espacio es reducido.</div>
+      <div class="tags">
+        <span class="tag tag-use">Avatar</span>
+        <span class="tag tag-use">Favicon</span>
+        <span class="tag tag-use">App icon</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 Isotipo solo lobo -->
+  <div class="logo-card">
+    <div class="logo-preview bg-gray">
+      <img src="logos/bleads-logo-horizontal-isotipo-lobo.png" alt="Bleads Isotipo solo lobo">
+    </div>
+    <div class="logo-meta">
+      <div class="logo-name">05 — Isotipo simple (lobo)</div>
+      <div class="logo-desc">Solo la silueta del lobo sin el círculo rojo. Elemento gráfico más versátil, puede usarse como decoración o watermark.</div>
+      <div class="tags">
+        <span class="tag tag-use">Decorativo</span>
+        <span class="tag tag-use">Watermark</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 Blanco luna roja -->
+  <div class="logo-card">
+    <div class="logo-preview bg-dark">
+      <img src="logos/bleads-logo-horizontal-imagotipo-blanco.png" alt="Bleads Imagotipo blanco con luna roja">
+    </div>
+    <div class="logo-meta">
+      <div class="logo-name">06 — Imagotipo blanco (luna roja)</div>
+      <div class="logo-desc">Versión negativa. Lobo blanco sobre luna roja, texto blanco. Para fondos oscuros, negro y videos.</div>
+      <div class="tags">
+        <span class="tag tag-use">Fondo oscuro</span>
+        <span class="tag tag-use">Videos</span>
+        <span class="tag tag-use">Dark mode</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 Blanco luna azul -->
+  <div class="logo-card">
+    <div class="logo-preview bg-blue">
+      <img src="logos/bleads-logo-horizontal-imagotipo-blanco-2.png" alt="Bleads Imagotipo blanco con luna azul">
+    </div>
+    <div class="logo-meta">
+      <div class="logo-name">07 — Imagotipo blanco (luna azul)</div>
+      <div class="logo-desc">Versión negativa sobre azul de marca. Para usar sobre fondo #084BB9 o en presentaciones con fondo azul.</div>
+      <div class="tags">
+        <span class="tag tag-use">Sobre #084BB9</span>
+        <span class="tag tag-use">Presentaciones</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===================== ÁREA DE SEGURIDAD ===================== -->
+<div class="section-label">Área de seguridad</div>
+<div class="safety">
+  El espacio libre mínimo alrededor del logo equivale a la altura de la letra <strong>"B"</strong> del wordmark en todas las direcciones. Ningún otro elemento puede entrar en esta zona de protección.<br><br>
+  En el <strong>Imagotipo Full</strong>, la línea horizontal y el tagline "EFFICIENCY GROWTH" son parte integral del logo — nunca separar estos elementos del wordmark.
+</div>
+
+<!-- ===================== REGLAS DE USO ===================== -->
+<div class="section-label">Cuándo usar cada versión</div>
+<div class="rules">
+  <div class="rule"><span class="rule-icon">✅</span><div><strong>Fondo blanco</strong>Cualquier variante de color. Versiones 01 al 05.</div></div>
+  <div class="rule"><span class="rule-icon">✅</span><div><strong>Fondo azul #084BB9</strong>Versión 07 (imagotipo blanco luna azul) o logotipo blanco.</div></div>
+  <div class="rule"><span class="rule-icon">✅</span><div><strong>Fondo rojo #EF2D2D</strong>Logotipo blanco o isotipo simple blanco.</div></div>
+  <div class="rule"><span class="rule-icon">✅</span><div><strong>Fondo oscuro / negro</strong>Versión 06 (imagotipo blanco luna roja) — la de mayor contraste.</div></div>
+  <div class="rule"><span class="rule-icon">✅</span><div><strong>Avatar / favicon / app icon</strong>Versión 04 (lobo+luna) o versión 05 (solo lobo).</div></div>
+  <div class="rule"><span class="rule-icon">✅</span><div><strong>Fotografía de fondo</strong>Usar lockup (recuadro blanco) o logotipo blanco. Nunca el imagotipo color directo sin contraste suficiente.</div></div>
+  <div class="rule"><span class="rule-icon">⚠️</span><div><strong>Fondos naranja, verde o teal (secundarios)</strong>Solo logotipo blanco o isotipo simple blanco. El imagotipo de color no tiene contraste suficiente.</div></div>
+</div>
+
+<!-- ===================== NO HACER ===================== -->
+<div class="section-label">Usos prohibidos — nunca hacer esto</div>
+<div class="dont-grid">
+  <div class="dont-card"><div class="dont-title">✗ Cambiar los colores</div><div class="dont-desc">Usar solo los colores oficiales: azul #084BB9, rojo #EF2D2D y blanco.</div></div>
+  <div class="dont-card"><div class="dont-title">✗ Deformar o estirar</div><div class="dont-desc">Siempre escalar de forma proporcional, nunca distorsionar.</div></div>
+  <div class="dont-card"><div class="dont-title">✗ Añadir efectos</div><div class="dont-desc">Sin sombras, brillos, contornos, gradientes ni filtros.</div></div>
+  <div class="dont-card"><div class="dont-title">✗ Rotar el logo</div><div class="dont-desc">El logo siempre horizontal. Sin rotaciones ni inclinaciones.</div></div>
+  <div class="dont-card"><div class="dont-title">✗ Bajo contraste</div><div class="dont-card">No usar el imagotipo de color sobre fondos de color no corporativo.</div></div>
+  <div class="dont-card"><div class="dont-title">✗ Separar elementos</div><div class="dont-desc">No separar el isotipo del wordmark salvo en casos específicos de avatar o stamp.</div></div>
+</div>
+
+<footer>
+  Bleads Design System v2025 · bleads.cl · francisca@bleads.cl
+</footer>
+
+</body>
+</html>
