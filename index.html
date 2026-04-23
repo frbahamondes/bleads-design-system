@@ -59,6 +59,12 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--gy);line-
 .card-preview img{max-height:68px;width:auto;max-width:100%;object-fit:contain}
 .card-preview.sm img{max-height:48px}
 .card-preview.full img{max-height:52px}
+/* Elimina fondo negro de PNGs sobre fondos claros */
+.bg-white img, .bg-gray img{mix-blend-mode:multiply}
+/* En fondos oscuros/color se usa screen para que el blanco resalte */
+.bg-dark img, .bg-blue img{mix-blend-mode:screen}
+/* También el logo del sidebar */
+.sidebar-logo img{mix-blend-mode:multiply}
 .bg-white{background:#fff}
 .bg-gray{background:#F5F7FB;border-bottom:0.5px solid var(--border)}
 .bg-dark{background:#0d0d0d}
