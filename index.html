@@ -59,16 +59,21 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--gy);line-
 .card-preview img{max-height:68px;width:auto;max-width:100%;object-fit:contain}
 .card-preview.sm img{max-height:48px}
 .card-preview.full img{max-height:52px}
-/* Elimina fondo negro de PNGs sobre fondos claros */
-.bg-white img, .bg-gray img{mix-blend-mode:multiply}
-/* En fondos oscuros/color se usa screen para que el blanco resalte */
-.bg-dark img, .bg-blue img{mix-blend-mode:screen}
-/* También el logo del sidebar */
-.sidebar-logo img{mix-blend-mode:multiply}
-.bg-white{background:#fff}
-.bg-gray{background:#F5F7FB;border-bottom:0.5px solid var(--border)}
+/* Logo preview backgrounds */
+.bg-white{background:#ffffff}
+.bg-gray{background:#F5F7FB}
 .bg-dark{background:#084BB9}
-.bg-blue{background:#A81515}
+.bg-blue{background:#EF2D2D}
+/* Checkered pattern para mostrar transparencia real */
+.bg-transparent{
+  background-image: linear-gradient(45deg,#e0e0e0 25%,transparent 25%),
+    linear-gradient(-45deg,#e0e0e0 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#e0e0e0 75%),
+    linear-gradient(-45deg,transparent 75%,#e0e0e0 75%);
+  background-size:16px 16px;
+  background-position:0 0,0 8px,8px -8px,-8px 0px;
+  background-color:#f5f5f5;
+}
 .card-body{padding:14px 16px;border-top:0.5px solid var(--border)}
 .card-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:3px}
 .card-desc{font-size:11px;color:var(--muted);line-height:1.55;margin-bottom:8px}
@@ -181,7 +186,8 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--gy);line-
 /* ── MOODBOARD ── */
 .mood-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:24px}
 .mood-card{border-radius:var(--r-lg);aspect-ratio:1;padding:14px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.mood-mark{font-size:9px;font-weight:700;color:rgba(255,255,255,0.7);position:relative;z-index:2}
+.mood-mark{display:flex;align-items:center;position:relative;z-index:2}
+.mood-mark img{height:20px;width:auto;object-fit:contain}
 .mood-content{position:relative;z-index:2}
 .mood-headline{font-size:13px;font-weight:800;color:#fff;text-transform:uppercase;line-height:1.15;letter-spacing:-0.01em}
 .mood-headline .gr{color:var(--gr)}
@@ -553,7 +559,7 @@ footer a{color:var(--bl);text-decoration:none}
 
     <div class="card-grid">
       <div class="card card-full">
-        <div class="card-preview bg-white full"><img src="logos/bleads-logo-full.png" alt="Bleads Imagotipo Full"></div>
+        <div class="card-preview bg-transparent full"><img src="logos/bleads-logo-full.png" alt="Bleads Imagotipo Full"></div>
         <div class="card-body">
           <div class="card-name">01 — Imagotipo Full</div>
           <div class="card-desc">Versión completa: isotipo + wordmark + línea + "EFFICIENCY GROWTH". Para propuestas comerciales y documentos institucionales.</div>
@@ -562,7 +568,7 @@ footer a{color:var(--bl);text-decoration:none}
       </div>
 
       <div class="card">
-        <div class="card-preview bg-white"><img src="logos/bleads-logo-horizontal-imagotipo.png" alt="Bleads Imagotipo"></div>
+        <div class="card-preview bg-transparent"><img src="logos/bleads-logo-horizontal-imagotipo.png" alt="Bleads Imagotipo"></div>
         <div class="card-body">
           <div class="card-name">02 — Imagotipo</div>
           <div class="card-desc">Isotipo + wordmark. Versión principal digital, web y RRSS. Sobre fondo blanco.</div>
@@ -571,7 +577,7 @@ footer a{color:var(--bl);text-decoration:none}
       </div>
 
       <div class="card">
-        <div class="card-preview bg-white"><img src="logos/bleads-logo-horizontal-logotipo.png" alt="Bleads Logotipo"></div>
+        <div class="card-preview bg-transparent"><img src="logos/bleads-logo-horizontal-logotipo.png" alt="Bleads Logotipo"></div>
         <div class="card-body">
           <div class="card-name">03 — Logotipo</div>
           <div class="card-desc">Solo el wordmark. Para fondos de color corporativo donde el isotipo pierde legibilidad.</div>
@@ -580,7 +586,7 @@ footer a{color:var(--bl);text-decoration:none}
       </div>
 
       <div class="card">
-        <div class="card-preview bg-gray sm"><img src="logos/bleads-logo-horizontal-isotipo-lobo-luna.png" alt="Bleads Isotipo lobo luna"></div>
+        <div class="card-preview bg-transparent sm"><img src="logos/bleads-logo-horizontal-isotipo-lobo-luna.png" alt="Bleads Isotipo lobo luna"></div>
         <div class="card-body">
           <div class="card-name">04 — Isotipo full (lobo+luna)</div>
           <div class="card-desc">Silueta del lobo sobre círculo rojo. Para avatar, favicon y app icon.</div>
@@ -589,7 +595,7 @@ footer a{color:var(--bl);text-decoration:none}
       </div>
 
       <div class="card">
-        <div class="card-preview bg-gray sm"><img src="logos/bleads-logo-horizontal-isotipo-lobo.png" alt="Bleads Isotipo lobo"></div>
+        <div class="card-preview bg-transparent sm"><img src="logos/bleads-logo-horizontal-isotipo-lobo.png" alt="Bleads Isotipo lobo"></div>
         <div class="card-body">
           <div class="card-name">05 — Isotipo simple (lobo)</div>
           <div class="card-desc">Solo la silueta del lobo sin círculo. Elemento gráfico versátil, decoración y watermark.</div>
@@ -680,7 +686,7 @@ footer a{color:var(--bl);text-decoration:none}
     <div class="mood-grid">
       <div class="mood-card" style="background:var(--bl)">
         <div style="position:absolute;top:-20px;right:-20px;width:80px;height:80px;border:12px solid rgba(255,255,255,0.15);border-radius:50%"></div>
-        <div class="mood-mark">🐺 BLEADS</div>
+        <div class="mood-mark"><img src="logos/bleads-logo-horizontal-imagotipo-blanco.png" alt="Bleads"></div>
         <div class="mood-content">
           <div class="mood-headline">Datos +<br>Estrategia =<br><span class="gr">Crecimiento</span></div>
           <div class="mood-dots"><div class="mood-dot" style="background:var(--rd)"></div><div class="mood-dot" style="background:var(--gr)"></div><div class="mood-dot" style="background:rgba(255,255,255,0.4)"></div></div>
@@ -688,7 +694,7 @@ footer a{color:var(--bl);text-decoration:none}
       </div>
       <div class="mood-card" style="background:#fff;border:0.5px solid var(--border)">
         <div style="position:absolute;bottom:-20px;right:-20px;width:70px;height:70px;background:var(--rd);border-radius:50%;opacity:0.15"></div>
-        <div class="mood-mark" style="color:var(--bl)">🐺 BLEADS</div>
+        <div class="mood-mark"><img src="logos/bleads-logo-horizontal-imagotipo.png" alt="Bleads"></div>
         <div class="mood-content">
           <div class="mood-headline" style="color:var(--bl)">No seguimos<br>el juego.</div>
           <div class="mood-headline" style="color:var(--rd)">Lo cambiamos.</div>
@@ -697,21 +703,21 @@ footer a{color:var(--bl);text-decoration:none}
       </div>
       <div class="mood-card" style="background:var(--rd)">
         <div style="position:absolute;top:-16px;left:-16px;width:60px;height:60px;border:8px solid rgba(255,255,255,0.2);border-radius:50%"></div>
-        <div class="mood-mark">🐺 BLEADS</div>
+        <div class="mood-mark"><img src="logos/bleads-logo-horizontal-imagotipo-blanco.png" alt="Bleads"></div>
         <div class="mood-content">
           <div class="mood-headline">Menos<br>excusas.<br>Más<br>crecimiento.</div>
         </div>
       </div>
       <div class="mood-card" style="background:var(--bl)">
         <div style="position:absolute;right:-8px;bottom:20px;width:48px;height:48px;background:var(--gr);border-radius:50%;opacity:0.5"></div>
-        <div class="mood-mark">🐺 BLEADS</div>
+        <div class="mood-mark"><img src="logos/bleads-logo-horizontal-imagotipo-blanco.png" alt="Bleads"></div>
         <div class="mood-content">
           <div class="mood-headline">+127%<br><span style="font-size:9px;font-weight:400;color:rgba(255,255,255,0.7);text-transform:none">Aumento en oportunidades comerciales</span></div>
           <div class="mood-cta">SOMOS LOBOS</div>
         </div>
       </div>
       <div class="mood-card" style="background:#fff;border:0.5px solid var(--border)">
-        <div class="mood-mark" style="color:var(--bl)">🐺 BLEADS</div>
+        <div class="mood-mark"><img src="logos/bleads-logo-horizontal-imagotipo.png" alt="Bleads"></div>
         <div class="mood-content">
           <div class="mood-headline" style="color:var(--bl)">B2B no<br>es fácil.</div>
           <div class="mood-headline" style="color:var(--rd)">Por eso<br>existimos.</div>
@@ -719,7 +725,7 @@ footer a{color:var(--bl);text-decoration:none}
       </div>
       <div class="mood-card" style="background:var(--bl)">
         <div style="position:absolute;bottom:-20px;left:-20px;width:90px;height:90px;border:14px solid var(--rd);border-radius:50%;opacity:0.3"></div>
-        <div class="mood-mark">🐺 BLEADS</div>
+        <div class="mood-mark"><img src="logos/bleads-logo-horizontal-imagotipo-blanco.png" alt="Bleads"></div>
         <div class="mood-content">
           <div class="mood-headline">¿Listo para<br>el siguiente<br>nivel?</div>
           <div class="mood-cta">HABLEMOS ↗</div>
